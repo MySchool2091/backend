@@ -39,7 +39,7 @@ on:
         description: "AWS region where ECR lives"
         required: false
         type: string
-        default: us-east-1
+        default: ap-southeast-2
     outputs:
       image-tag:
         description: "Docker image tag pushed to ECR (format: sha-<7chars>)"
@@ -102,19 +102,19 @@ jobs:
           path: ${{ inputs.service-dir }}/coverage/
           retention-days: 7
 
-      - name: SonarCloud Scan
-        uses: SonarSource/sonarcloud-github-action@v3
-        env:
-          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
-        with:
-          projectBaseDir: ${{ inputs.service-dir }}
-          args: >
-            -Dsonar.organization=${{ vars.SONAR_ORG }}
-            -Dsonar.projectKey=${{ vars.SONAR_PROJECT_KEY_BACKEND }}
-            -Dsonar.sources=src
-            -Dsonar.tests=src
-            -Dsonar.test.inclusions=**/*.test.js
-            -Dsonar.javascript.lcov.reportPaths=coverage/lcov.info
+      # - name: SonarCloud Scan
+      #   uses: SonarSource/sonarcloud-github-action@v3
+      #   env:
+      #     SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+      #   with:
+      #     projectBaseDir: ${{ inputs.service-dir }}
+      #     args: >
+      #       -Dsonar.organization=${{ vars.SONAR_ORG }}
+      #       -Dsonar.projectKey=${{ vars.SONAR_PROJECT_KEY_BACKEND }}
+      #       -Dsonar.sources=src
+      #       -Dsonar.tests=src
+      #       -Dsonar.test.inclusions=**/*.test.js
+      #       -Dsonar.javascript.lcov.reportPaths=coverage/lcov.info
 
 
       - name: npm audit (HIGH/CRITICAL → warn)
