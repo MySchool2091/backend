@@ -44,7 +44,7 @@ jobs:
       service-name: api-gateway
       service-dir: api-gateway
       ecr-repository: api-gateway
-      aws-region: us-east-1
+      aws-region: ap-southeast-2
       needs-database: false
     secrets: inherit
 
