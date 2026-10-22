@@ -11,5 +11,6 @@ CREATE TABLE IF NOT EXISTS auth.users (
 INSERT INTO auth.users (username, email, password, role)
 VALUES
   ('admin', 'admin@pharma.com', '$2a$10$N9qo8uLOickgx2ZMRZoMyeIjZAgcfl7p92ldGxad68LJZdL17lhWy', 'ADMIN'),
-  ('pharmacist1', 'pharmacist@pharma.com', '$2a$10$N9qo8uLOickgx2ZMRZoMyeIjZAgcfl7p92ldGxad68LJZdL17lhWy', 'PHARMACIST')
+  ('pharmacist1', 'pharmacist@pharma.com', '$2a$10$N9qo8uLOickgx2ZMRZoMyeIjZAgcfl7p92ldGxad68LJZdL17lhWy', 'PHARMACIST'),
+  ('kanu', 'kanu.paul@gmail.com', '$2a$10$crGOqCeAVGkgH0KZCDUf9us7MoKffyTqRJo5cy9FslsYfFSpkvXPi', 'ADMIN')
 ON CONFLICT DO NOTHING;
