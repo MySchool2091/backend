@@ -1,4 +1,4 @@
-# Dockerfile for auth-service 23102026
+# Dockerfile for auth-service 23102026-01
 FROM eclipse-temurin:17-jre
 WORKDIR /app
 RUN groupadd -r pharma && useradd -r -g pharma pharma
